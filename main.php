@@ -27,7 +27,7 @@
 			$sql = "SELECT * FROM `Animal` LIMIT 10 OFFSET ".$nowPage*10;
 		}
 		else{
-			$sql = "SELECT * FROM `Animal` WHERE `C".$level."` = '".$name."'' LIMIT 10 OFFSET ".$nowPage*10;
+			$sql = "SELECT * FROM `Animal` WHERE `C".$level."` = '".$name."' LIMIT 10 OFFSET ".$nowPage*10;
 		}
 		echo $sql;
 
