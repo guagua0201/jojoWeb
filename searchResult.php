@@ -18,8 +18,7 @@
 	<div class="container" style="background-color:white;padding:7%;border-radius:5%;">
 		<div class = "row">
 			<div class="col-7" style="text-align:center;">
-
-				<button type="button" class="btn btn-secondary" onclick="location.href='chooseCategory.php';">選擇分類</button>
+				搜尋結果
 			</div>
 			
 			<div class="col-5" style="text-align:right;">
@@ -29,7 +28,21 @@
 				</form>
 			</div>
 		</div>
-		<?php showGallery(0,""); ?>
+		<?php
+			if(isset($_GET["keyword"])){
+				$key = $_GET["keyword"];
+				$link = mysqli_connect(db_host, db_user, db_password, db_name);
+				$sql = "SELECT * FROM `Animal` WHERE `Name` like '%b".$key."%b'";
+				for($i = 3;$i<=7;$i++){
+					$sql .= " OR ";
+					$sql .= " `C".$i."` like '%b".$key."%b'";	
+				}
+				echo $sql;
+			}
+			else{
+				echo "missed keyword!";
+			}
+		?>
 	</div>
 </body>
 
