@@ -30,7 +30,7 @@
 					}
 					for($i=3;$i<=$level;$i++){
 						if($i != 3) echo " > ";
-						echo $GET["c".$i];
+						echo $_GET["c".$i];
 					}
 				?>
 			</div>
@@ -50,6 +50,26 @@
 			$link = mysqli_connect(db_host, db_user, db_password, db_name);
 			if($level == 0){
 				$sql = "SELECT * FROM `Category` WHERE `Level` = 3";
+				if($result = mysqli_query($link, $sql)) {
+					$cnt = 0;
+					while($cate = mysqli_fetch_array($result)){
+						if($cnt%2==0){
+							echo "<div class='row' style='margin-top:10%;'>";
+						}
+						echo "<div class='col-6' style='text-align:center;'>";
+
+						echo "<a>".$cate["name"]."</a>";
+						
+						echo "</div>";
+						if($cnt%2==1){
+							echo "</div>";
+						}
+						$cnt ++;
+					}
+				}
+			}
+			else{
+				
 			}
 		?>
 	</div>
