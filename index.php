@@ -15,9 +15,8 @@
 
 <!-- body start from here -->
 <body>
-	<div class="container" style="background-color:#F0E68C min-height:60%">
+	<div class="container-fluid" style="background-color:#F0E68C ;min-height:60%">
 	</div>
-
 </body>
 
 
