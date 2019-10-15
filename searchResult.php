@@ -37,7 +37,27 @@
 					$sql .= " OR ";
 					$sql .= " `C".$i."` like '%".$key."%'";	
 				}
-				echo $sql;
+				
+				if($result = mysqli_query($link, $sql)) {
+					$cnt = 0;
+					while($animal = mysqli_fetch_array($result)){
+						if($cnt%2==0){
+							echo "<div class='row' style='margin-top:10%;'>";
+						}
+						echo "<div class='col-6' style='text-align:center;'>";
+
+						echo "<img src = '".$animal["ImagePath"]."' alt = 'fail' style = 'width:180;height:180;'>";
+						echo "</div>";
+						if($cnt%2==1){
+							echo "</div>";
+						}
+						$cnt ++;
+					}
+				}
+				else{
+					echo "error2";
+				}
+				
 			}
 			else{
 				echo "missed keyword!";
