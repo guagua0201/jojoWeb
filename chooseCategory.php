@@ -28,7 +28,12 @@
 					}
 					for($i=3;$i<=$level;$i++){
 						if($i != 3) echo " > ";
-						echo $_GET["c".$i];
+						$arr = $_GET;
+						$arr["level"] = $i;
+						echo "<a href='";
+						echo "/chooseCategory.php?";
+						echo http_build_query($arr);
+						echo "'>"$_GET["c".$i].">";
 					}
 				?>
 			</div>
