@@ -29,7 +29,7 @@
 			if($result = mysqli_query($link, $sql)) {
 				$cnt = 0;
 				while($animal = mysqli_fetch_array($result)){
-
+					echo $cnt;
 					if($cnt%2==0){
 						echo "<div class=\"row\">";
 					}
