@@ -20,13 +20,11 @@
 			<div class="col-8">
 				現在位置: 
 				<?php
-					if(isset($_GET) && isset($_GET["level"]) && isset($_GET["name"])) {
+					if(isset($_GET) && isset($_GET["level"])) {
 						$level = $_GET["level"];
-						$name = $_GET["name"];
 					}
 					else{
 						$level = 0;
-						$name = "";
 					}
 					for($i=3;$i<=$level;$i++){
 						if($i != 3) echo " > ";
@@ -57,9 +55,15 @@
 						if($cnt%2==0){
 							echo "<div class='row' style='margin-top:10%;'>";
 						}
+
+						$arr["level"] = 3;
+						$arr["c3"] = $cate["Name"];
+
 						echo "<div class='col-6' style='text-align:center;'>";
 
-						echo "<a>".$cate["Name"]."</a>";
+						echo "<a href = '/chooseCategory.php?";
+						echo http_build_query($arr);
+						echo "'>".$cate["Name"]."</a>";
 						
 						echo "</div>";
 						if($cnt%2==1){
@@ -70,7 +74,37 @@
 				}
 			}
 			else{
-		
+				$sql = "SELECT * FROM `Category` WHERE `Level` = ".$level+1." WHERE ";
+				for($i=3;$i<=$level;$i++){
+					if($i>3) $sql.=" AND ";
+					$sql .= "C".$i." = ".$_GET["c".$i];
+				}
+
+				if($result = mysqli_query($link, $sql)) {
+					$cnt = 0;
+					while($cate = mysqli_fetch_array($result)){
+						if($cnt%2==0){
+							echo "<div class='row' style='margin-top:10%;'>";
+						}
+
+						$arr = $_GET;
+						$arr["level"]++;
+						$arr["c".$arr["level"]] = $cate["Name"];
+
+						echo "<div class='col-6' style='text-align:center;'>";
+
+						echo "<a href = '/chooseCategory.php?";
+						echo http_build_query($arr);
+						echo "'>".$cate["Name"]."</a>";
+						
+						echo "</div>";
+						if($cnt%2==1){
+							echo "</div>";
+						}
+						$cnt ++;
+					}
+				}
+
 			}
 		?>
 	</div>
