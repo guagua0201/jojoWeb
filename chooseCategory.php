@@ -60,7 +60,7 @@
 						if($cnt%2==0){
 							echo "<div class='row' style='margin-top:10%;'>";
 						}
-
+						$arr = [];
 						$arr["level"] = 3;
 						$arr["c3"] = $cate["Name"];
 
@@ -79,11 +79,14 @@
 				}
 			}
 			else{
-				$sql = "SELECT * FROM `Category` WHERE `Level` = ".$level+1." WHERE ";
+				$nextLevel = $level+1;
+				$sql = "SELECT * FROM `Category` WHERE `Level` = ".$nextLevel." AND ";
 				for($i=3;$i<=$level;$i++){
 					if($i>3) $sql.=" AND ";
-					$sql .= "C".$i." = ".$_GET["c".$i];
+					$sql .= "C".$i." = '".$_GET["c".$i]."'";
 				}
+
+//				echo $sql;
 
 				if($result = mysqli_query($link, $sql)) {
 					$cnt = 0;
