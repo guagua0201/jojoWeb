@@ -15,7 +15,7 @@
 
 <!-- body start from here -->
 <body style="background-color:gray;">
-	<div class="container" style="background-color:white;padding:7%;border-radius:10%;">
+	<div class="container" style="background-color:white;padding:7%;border-radius:5%;">
 		<div class = "row">
 			<div class="col-7">
 

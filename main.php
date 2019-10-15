@@ -37,9 +37,9 @@
 				if($cnt%2==0){
 					echo "<div class=\"row\">";
 				}
-				echo "<div class=\"col-6\">";
+				echo "<div class=\"col-6\" style='text-align:center;'>";
 
-				echo "<img src = \"".$animal["ImagePath"]."\" alt = \"fail\" style = \"width:80%;height:80%;\">";
+				echo "<img src = \"".$animal["ImagePath"]."\" alt = \"fail\" style = \"width:180;height:180;\">";
 				echo "</div>";
 				if($cnt%2==1){
 					echo "</div>";
