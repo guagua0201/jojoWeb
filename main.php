@@ -25,10 +25,10 @@
 			exit(0);
 		}
 		if($level == 0){
-			$sql = "SELECT * FROM `Animal` OFFSET ".$nowPage*10." LIMIT 10";
+			$sql = "SELECT * FROM `Animal` LIMIT 10 OFFSET ".$nowPage*10;
 		}
 		else{
-			//$sql = "SELECT * FROM `Animal` WHERE `Level` = ".$level." AND `Name` = \"".$name."\" OFFSET ".$nowPage*10." LIMIT 10";
+			$sql = "SELECT * FROM `Animal` WHERE `Level` = ".$level." AND `Name` = \"".$name."\" LIMIT 10 OFFSET ".$nowPage*10;
 		}
 
 		if($result = mysqli_query($link, $sql)) {
