@@ -20,6 +20,7 @@
 		if($level == 0){
 			$link = mysqli_connect(db_host, db_user, db_password, db_name);
 			if(!$link){
+				echo "error1";
 				exit(0);
 			}
 			$sql = "SELECT * FROM `Animal` LIMIT 10";
@@ -27,6 +28,9 @@
 				while($animal = mysqli_fetch_array($result)){
 					echo "<img src = ".$animal["ImagePath"]." alt = \"fail\" style = \"width:100;height:100;\">";
 				}
+			}
+			else{
+				echo "error2";
 			}
 
 		}
