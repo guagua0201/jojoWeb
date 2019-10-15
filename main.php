@@ -28,7 +28,7 @@
 			$sql = "SELECT * FROM `Animal` LIMIT 10";
 			if($result = mysqli_query($link, $sql)) {
 				while($animal = mysqli_fetch_array($result)){
-					echo "<img src = ".$animal["ImagePath"]." alt = \"fail\" style = \"width:100;height:100;\">";
+					echo "<img src = \"".$animal["ImagePath"]."\" alt = \"fail\" style = \"width:100;height:100;\">";
 				}
 			}
 			else{
