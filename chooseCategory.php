@@ -48,6 +48,7 @@
 		</div>
 		<?php
 			$link = mysqli_connect(db_host, db_user, db_password, db_name);
+			if(!link) echo "error1";
 			if($level == 0){
 				$sql = "SELECT * FROM `Category` WHERE `Level` = 3";
 				if($result = mysqli_query($link, $sql)) {
@@ -58,7 +59,7 @@
 						}
 						echo "<div class='col-6' style='text-align:center;'>";
 
-						echo "<a>".$cate["name"]."</a>";
+						echo "<a>".$cate["Name"]."</a>";
 						
 						echo "</div>";
 						if($cnt%2==1){
@@ -69,7 +70,7 @@
 				}
 			}
 			else{
-				
+		
 			}
 		?>
 	</div>
