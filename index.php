@@ -14,8 +14,8 @@
 
 
 <!-- body start from here -->
-<body>
-	body
+<body style="background-color:#F0E68C">
+	
 
 </body>
 
