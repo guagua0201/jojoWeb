@@ -32,10 +32,10 @@
 			if(isset($_GET["keyword"])){
 				$key = $_GET["keyword"];
 				$link = mysqli_connect(db_host, db_user, db_password, db_name);
-				$sql = "SELECT * FROM `Animal` WHERE `Name` like '%b".$key."%b'";
+				$sql = "SELECT * FROM `Animal` WHERE `Name` like '%".$key."%'";
 				for($i = 3;$i<=7;$i++){
 					$sql .= " OR ";
-					$sql .= " `C".$i."` like '%b".$key."%b'";	
+					$sql .= " `C".$i."` like '%".$key."%'";	
 				}
 				echo $sql;
 			}
