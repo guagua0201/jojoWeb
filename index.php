@@ -22,11 +22,10 @@
 				<button type="button" class="btn btn-secondary" onclick="location.href='chooseCategory.php';">選擇分類</button>
 			</div>
 			
-			<div class="col-5">
+			<div class="col-5" style="text-align:right;">
 				<form class="form-inline active-cyan-4">
 				  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
 				    aria-label="Search">
-				  <i class="fas fa-search" aria-hidden="true"></i>
 				</form>
 			</div>
 		</div>
