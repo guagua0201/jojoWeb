@@ -14,8 +14,17 @@
 
 
 <!-- body start from here -->
-<body>
-	<div class="container-fluid" style="background-color:#F0E68C ;min-height:60%">
+<body style="background-color:gray;">
+	<div class="container" style="background-color:white;">
+		<div class = "row">
+			<<button type="button" class="btn btn-secondary">選擇分類</button>
+			<form class="form-inline active-cyan-4">
+			  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+			    aria-label="Search">
+			  <i class="fas fa-search" aria-hidden="true"></i>
+			</form>
+		</div>
+		<?php showGallery(0,""); ?>
 	</div>
 </body>
 

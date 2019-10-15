@@ -1,7 +1,9 @@
 <header>
 	<style>
 	</style>
-	<div class = "container-fluid" style="height:20%; background-color:#E6C35C">
-		header
+	<div class = "container-fluid" style="height:20%;">
+		<h1>
+			This is Title
+		</h1>
 	</div>
 </header>
