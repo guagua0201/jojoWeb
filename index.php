@@ -14,8 +14,9 @@
 
 
 <!-- body start from here -->
-<body style="background-color:#F0E68C">
-	
+<body>
+	<div class="container" style="background-color:#F0E68C min-height:60%">
+	</div>
 
 </body>
 
