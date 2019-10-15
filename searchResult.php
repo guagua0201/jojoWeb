@@ -21,10 +21,10 @@
 				搜尋結果
 			</div>
 			
-			<div class="col-5" style="text-align:right;">
+			<div class="col-5" style="text-align:right;" action="searchResult.php" method="get">
 				<form class="form-inline active-cyan-4">
 				  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-				    aria-label="Search" action="searchResult.php" method="get">
+				    aria-label="Search" name="keyword">
 				</form>
 			</div>
 		</div>
