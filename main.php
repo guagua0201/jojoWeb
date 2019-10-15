@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <?php
-	define("db_host","127.0.0.1");
+	define("db_host","localhost");
 	define("db_user","root");
 	define("db_password","sYq0ZJOPmwHF");
 	define("db_name","jojoweb");
@@ -18,12 +18,13 @@
 
 	function showGallery($level,$name){
 		//echo "gallery";
+		$link = mysqli_connect(db_host, db_user, db_password, db_name);
+		if(!$link){
+			echo "error1";
+			exit(0);
+		}
 		if($level == 0){
-			$link = mysqli_connect(db_host, db_user, db_password, db_name);
-			if(!$link){
-				echo "error1";
-				exit(0);
-			}
+			
 			$sql = "SELECT * FROM `Animal` LIMIT 10";
 			if($result = mysqli_query($link, $sql)) {
 				while($animal = mysqli_fetch_array($result)){
@@ -35,5 +36,7 @@
 			}
 
 		}
+
+		mysql_close($link);
 	}
 ?>
