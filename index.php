@@ -19,7 +19,7 @@
 		<div class = "row">
 			<div class="col-7">
 
-				<button type="button" class="btn btn-secondary">選擇分類</button>
+				<button type="button" class="btn btn-secondary" onclick="location.href='chooseCategory.php'">>選擇分類</button>
 			</div>
 			
 			<div class="col-5">

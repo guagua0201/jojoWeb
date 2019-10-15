@@ -19,34 +19,36 @@
 	function showGallery($level,$name){
 		//echo "gallery";
 		$link = mysqli_connect(db_host, db_user, db_password, db_name);
+		$nowPage = 0;
 		if(!$link){
 			echo "error1";
 			exit(0);
 		}
 		if($level == 0){
-			
-			$sql = "SELECT * FROM `Animal` LIMIT 10";
-			if($result = mysqli_query($link, $sql)) {
-				$cnt = 0;
-				while($animal = mysqli_fetch_array($result)){
-					echo $cnt;
-					if($cnt%2==0){
-						echo "<div class=\"row\">";
-					}
-					echo "<div class=\"col-6\">";
+			$sql = "SELECT * FROM `Animal` OFFSET ".$nowPage*10." LIMIT 10";
+		}
+		else{
+			$sql = "SELECT * FROM `Animal` WHERE `Level` = ".$level." AND `Name` = \"".$name."\" OFFSET ".$nowPage*10." LIMIT 10";
+		}
 
-					echo "<img src = \"".$animal["ImagePath"]."\" alt = \"fail\" style = \"width:80%;height:80%;\">";
-					echo "</div>";
-					if($cnt%2==1){
-						echo "</div>";
-					}
-					$cnt ++;
+		if($result = mysqli_query($link, $sql)) {
+			$cnt = 0;
+			while($animal = mysqli_fetch_array($result)){
+				if($cnt%2==0){
+					echo "<div class=\"row\">";
 				}
-			}
-			else{
-				echo "error2";
-			}
+				echo "<div class=\"col-6\">";
 
+				echo "<img src = \"".$animal["ImagePath"]."\" alt = \"fail\" style = \"width:80%;height:80%;\">";
+				echo "</div>";
+				if($cnt%2==1){
+					echo "</div>";
+				}
+				$cnt ++;
+			}
+		}
+		else{
+			echo "error2";
 		}
 
 		mysql_close($link);
