@@ -32,6 +32,14 @@
 					}
 				?>
 			</div>
+			<div class="col-4">
+				<a href=
+				<?php
+					echo "'/chooseCategory.php?";
+					echo http_build_query($_GET)."'";
+				?>
+				>回到搜尋</a>
+			</div>
 		</div>
 		<?php 
 			if(isset($_GET["Level"])){

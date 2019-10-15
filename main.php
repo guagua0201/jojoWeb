@@ -30,6 +30,7 @@
 		else{
 			$sql = "SELECT * FROM `Animal` WHERE `Level` = ".$level." AND `Name` = \"".$name."\" LIMIT 10 OFFSET ".$nowPage*10;
 		}
+		echo "$sql = ".$sql;
 
 		if($result = mysqli_query($link, $sql)) {
 			$cnt = 0;
