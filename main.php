@@ -17,7 +17,7 @@
 
 
 	function showGallery($level,$name){
-		//echo "gallery";
+		echo "gallery";
 		$link = mysqli_connect(db_host, db_user, db_password, db_name);
 		$nowPage = 0;
 		if(!$link){
