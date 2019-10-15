@@ -24,9 +24,10 @@
 			exit(0);
 		}
 		if($level == 0){
-			$cnt = 0;
+			
 			$sql = "SELECT * FROM `Animal` LIMIT 10";
 			if($result = mysqli_query($link, $sql)) {
+				$cnt = 0;
 				while($animal = mysqli_fetch_array($result)){
 
 					if($cnt%2==0){
@@ -39,6 +40,7 @@
 					if($cnt%2==1){
 						echo "</div>";
 					}
+					$cnt ++;
 				}
 			}
 			else{
