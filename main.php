@@ -16,15 +16,14 @@
 	define("db_name","jojoweb");
 
 
-	function showGallery($level,$name){
+	function showGallery($level,$name,$nowPage){
 		$link = mysqli_connect(db_host, db_user, db_password, db_name);
-		$nowPage = 0;
 		if(!$link){
 			echo "error1";
 			exit(0);
 		}
 		if($level == 0){
-			$sql = "SELECT * FROM `Animal` LIMIT 10 OFFSET ".$nowPage*10;
+			$sql = "SELECT * FROM `Animal` ORDER BY RAND() LIMIT 10";
 		}
 		else{
 			$sql = "SELECT * FROM `Animal` WHERE `C".$level."` = '".$name."' LIMIT 10 OFFSET ".$nowPage*10;

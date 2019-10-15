@@ -29,7 +29,7 @@
 				</form>
 			</div>
 		</div>
-		<?php showGallery(0,""); ?>
+		<?php showGallery(0,"",0); ?>
 	</div>
 </body>
 

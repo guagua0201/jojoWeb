@@ -44,7 +44,7 @@
 			}
 		?>
 		<div class = "row">
-			<nav aria-label="Page navigation example">
+			<nav aria-label="Page navigation example" style="position: absolute; left:40%;">
 		  	<ul class="pagination">
 
 		  		<?php

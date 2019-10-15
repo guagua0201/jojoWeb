@@ -51,7 +51,13 @@
 		</div>
 		<?php 
 			if(isset($_GET["level"])){
-				showGallery($_GET["level"],$_GET["c".$_GET["level"]]); 
+				if(isset($_GET["nowPage"])){
+					$nowPage = $_GET["nowPage"];
+				}
+				else{
+					$nowPage = 0;
+				}
+				showGallery($_GET["level"],$_GET["c".$_GET["level"]],$nowPage); 
 			}
 		?>
 	</div>
