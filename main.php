@@ -17,7 +17,6 @@
 
 
 	function showGallery($level,$name){
-		echo "gallery";
 		$link = mysqli_connect(db_host, db_user, db_password, db_name);
 		$nowPage = 0;
 		if(!$link){
@@ -30,7 +29,7 @@
 		else{
 			$sql = "SELECT * FROM `Animal` WHERE `Level` = ".$level." AND `Name` = \"".$name."\" LIMIT 10 OFFSET ".$nowPage*10;
 		}
-		echo "$sql = ".$sql;
+		echo $sql;
 
 		if($result = mysqli_query($link, $sql)) {
 			$cnt = 0;

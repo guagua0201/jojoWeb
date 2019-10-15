@@ -42,7 +42,7 @@
 			</div>
 		</div>
 		<?php 
-			if(isset($_GET["Level"])){
+			if(isset($_GET["level"])){
 				showGallery($_GET["level"],$_GET["c".$_GET["level"]]); 
 			}
 		?>
