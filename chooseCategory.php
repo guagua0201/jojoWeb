@@ -26,7 +26,7 @@
 					}
 					else{
 						$level = 0;
-						$name = ""
+						$name = "";
 					}
 					for($i=3;$i<=$level;$i++){
 						if($i != 3) echo " > ";
@@ -37,8 +37,11 @@
 			<div class="col-4">
 				<button type="button" class="btn btn-secondary" onclick="location.href=
 				<?php
-					echo "/gallery.php?";
-					echo http_build_query($_GET);
+					echo "'gallery.php?";
+					if(isset($_GET["level"])){
+						echo http_build_query($_GET);
+					}
+					echo "'";
 				?>
 				">瀏覽結果</button>
 			</div>
