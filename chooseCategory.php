@@ -33,7 +33,7 @@
 						echo "<a href='";
 						echo "/chooseCategory.php?";
 						echo http_build_query($arr);
-						echo "'>"$_GET["c".$i].">";
+						echo "'>".$_GET["c".$i].">";
 					}
 				?>
 			</div>
