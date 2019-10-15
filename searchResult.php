@@ -45,24 +45,24 @@
 		?>
 		<div class = "row">
 			<nav aria-label="Page navigation example" style="position: absolute; left:40%;">
-		  	<ul class="pagination">
+			  	<ul class="pagination">
 
-		  		<?php
-		  			for($i=-2;$i<=2;$i++):
-		  				$p = $nowPage + $i;
-		  				if($p>=0):
-		  		?>
-			    			<li class="page-item"><a class="page-link" href=
-					    		<?php
-					    			echo "'/searchResult.php?keyword=".$key."&nowPage=".$p."'";
-					    		?>
-			    			><?php $p1 = $p+1; echo $p1; ?></a> </li>
-			    		<?php
-			    		endif;
-			    	endfor;
-			    ?>
-		  	</ul>
-		</nav>
+			  		<?php
+			  			for($i=-2;$i<=2;$i++):
+			  				$p = $nowPage + $i;
+			  				if($p>=0):
+			  		?>
+				    			<li class="page-item"><a class="page-link" href=
+						    		<?php
+						    			echo "'/searchResult.php?keyword=".$key."&nowPage=".$p."'";
+						    		?>
+				    			><?php $p1 = $p+1; echo $p1; ?></a> </li>
+				    		<?php
+				    		endif;
+				    	endfor;
+				    ?>
+			  	</ul>
+			</nav>
 		</div>
 		<?php
 			if(isset($_GET["keyword"])){

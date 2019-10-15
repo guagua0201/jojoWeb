@@ -49,14 +49,44 @@
 				>回到搜尋</a>
 			</div>
 		</div>
+
+		<?php
+			if(isset($_GET["nowPage"])){
+				$nowPage = $_GET["nowPage"];
+			}
+			else{
+				$nowPage = 0;
+			}
+		?>
+
+		<div class = "row">
+			<nav aria-label="Page navigation example" style="position: absolute; left:40%;">
+			  	<ul class="pagination">
+
+			  		<?php
+			  			for($i=-2;$i<=2;$i++):
+			  				$p = $nowPage + $i;
+			  				if($p>=0):
+			  		?>
+				    			<li class="page-item"><a class="page-link" href=
+						    		<?php
+						    			$arr = $_GET;
+						    			$arr["nowPage"] = $p;
+						    			echo "'/gallery.php?";
+
+						    			echo http_build_query($arr)."'";
+						    		?>
+				    			><?php $p1 = $p+1; echo $p1; ?></a> </li>
+				    		<?php
+				    		endif;
+				    	endfor;
+				    ?>
+			  	</ul>
+			</nav>
+		</div>
+
 		<?php 
 			if(isset($_GET["level"])){
-				if(isset($_GET["nowPage"])){
-					$nowPage = $_GET["nowPage"];
-				}
-				else{
-					$nowPage = 0;
-				}
 				showGallery($_GET["level"],$_GET["c".$_GET["level"]],$nowPage); 
 			}
 		?>

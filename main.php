@@ -29,6 +29,22 @@
 			$sql = "SELECT * FROM `Animal` WHERE `C".$level."` = '".$name."' LIMIT 10 OFFSET ".$nowPage*10;
 		}
 
+		/*echo "<div class = 'row'>"
+			echo "<nav aria-label='Page navigation example' style='position: absolute; left:40%;'>";
+			  	echo "<ul class='pagination'>";
+
+			  		
+		  			for($i=-2;$i<=2;$i++){
+		  				$p = $nowPage + $i;
+		  				if($p<0) continue;
+		  				echo "<li class='page-item'><a class='page-link' href=";
+		  				echo "'/"
+		  			}
+				    
+			  	echo "</ul>";
+			echo "</nav>";
+		echo "</div>";*/
+
 		if($result = mysqli_query($link, $sql)) {
 			$cnt = 0;
 			while($animal = mysqli_fetch_array($result)){
