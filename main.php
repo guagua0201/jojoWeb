@@ -24,11 +24,21 @@
 			exit(0);
 		}
 		if($level == 0){
-			
+			$cnt = 0;
 			$sql = "SELECT * FROM `Animal` LIMIT 10";
 			if($result = mysqli_query($link, $sql)) {
 				while($animal = mysqli_fetch_array($result)){
-					echo "<img src = \"".$animal["ImagePath"]."\" alt = \"fail\" style = \"width:100;height:100;\">";
+
+					if($cnt%2==0){
+						echo "<div class=\"row\">";
+					}
+					echo "<div class=\"col-6\">";
+
+					echo "<img src = \"".$animal["ImagePath"]."\" alt = \"fail\" style = \"width:80%;height:80%;\">";
+					echo "</div>";
+					if($cnt%2==1){
+						echo "</div>";
+					}
 				}
 			}
 			else{
