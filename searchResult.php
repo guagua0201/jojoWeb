@@ -28,8 +28,45 @@
 				</form>
 			</div>
 		</div>
+
+		<?php
+			if(isset($_GET["nowPage"])){
+				$nowPage = $_GET["nowPage"];
+			}
+			else{
+				$nowPage = 0;
+			}
+			if(!isset($_GET["keyword"])){
+				$key = "";
+			}
+			else{
+				$key = $_GET["keyword"];
+			}
+		?>
+		<div class = "row">
+			<nav aria-label="Page navigation example">
+		  	<ul class="pagination">
+
+		  		<?php
+		  			for($i=-2;$i<=2;$i++):
+		  				$p = $nowPage + $i;
+		  				if($p>=0):
+		  		?>
+			    			<li class="page-item"><a class="page-link" href=
+					    		<?php
+					    			echo "'/searchResult.php?keyword=".$key."&nowPage=".$p."'";
+					    		?>
+			    			><?php $p1 = $p+1; echo $p1; ?></a> </li>
+			    		<?php
+			    		endif;
+			    	endfor;
+			    ?>
+		  	</ul>
+		</nav>
+		</div>
 		<?php
 			if(isset($_GET["keyword"])){
+				
 				$key = $_GET["keyword"];
 				$link = mysqli_connect(db_host, db_user, db_password, db_name);
 				$sql = "SELECT * FROM `Animal` WHERE `Name` like '%".$key."%'";
@@ -37,6 +74,7 @@
 					$sql .= " OR ";
 					$sql .= " `C".$i."` like '%".$key."%'";	
 				}
+				$sql .= " LIMIT 10 OFFSET ".$nowPage*10;
 				
 				if($result = mysqli_query($link, $sql)) {
 					$cnt = 0;
@@ -57,7 +95,7 @@
 				else{
 					echo "error2";
 				}
-				
+
 			}
 			else{
 				echo "missed keyword!";
